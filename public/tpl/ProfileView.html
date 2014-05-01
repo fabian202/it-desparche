@@ -1,0 +1,125 @@
+<% var alter = false; %>
+<div class="row-fluid trans-white" >
+
+	<div class="header" style="text-align: center">
+		Perfil de <%= profile.nick %>
+	</div>
+
+	<ul class="inline div-max user-info ">
+		<li style="width:20%" class="trans-gray "> 
+
+			<div style="text-align:center; position:">
+				<a href="/#/usuario/<%= profile.nick %>"><%= profile.nick %></a>
+			</div>
+			
+			<% if(edit){ %>
+				<div style="text-align:center;" id="image-user">
+					<img src="/images/users/<%= profile.nick %>.png" id="uploadedImage" class="user-profile" />				
+				</div>
+
+				<div style="width: 100%; position: relative;text-align:center">
+					<div style="margin-top:-29px">
+						<button id="btn-upload" class="btn" style="margin: 0 auto;width:100px">Subir Foto</button>
+					</div>
+				</div>		
+				<div>
+					<div id="loader-upload" class="ajax-loader"></div>
+					<form action="/file-upload" enctype="multipart/form-data" method="post" id="uploadForm">
+						<input type="file" style="display: none" name="fileUpload" id="fileUpload">
+						<div class="span2 hide" style="margin-top: 6px;width: 100%; white-space: nowrap;" id="accept-upload">
+							<button class="btn btn-primary" type="submit">Aceptar</button>
+							<input type="button" class="btn btn-link" value="Cancelar" id="cancel-upload">
+						</div>
+					</form>
+				</div>
+			<% } else { %>
+				<div style="text-align:center;" id="image-user">
+					<img src="/images/users/<%= profile.nick %>.png"  />				
+				</div>
+			<% } %>
+
+			
+
+			<ul style="margin: 6px 0; list-style: none" class="trans-gray border-radius">
+				<li>
+					<ul class="inline">						
+						<li style="width: 100% !important;text-align:center;padding: 6px 0;">
+							<span class="label label-info"><%= profile.status %></span>
+						</li>
+					</ul>									
+				</li>
+				<li>
+					<ul class="inline">
+						<li>Comentarios:</li>
+						<li><span class="badge badge-info"><%= profile.total_comments %></span></li>
+					</ul>
+				</li>
+				<li>
+					<ul class="inline">
+						<li>Temas:</li>
+						<li><span class="badge badge-info"><%= profile.posts %></span></li>
+					</ul>
+				</li>
+			</ul>
+			
+		</li>
+		<li style="widht:80%; vertical-align:top">
+			<div class="inline div-max" style="padding: 0">
+				<div style="padding: 0 1px 0 0; vertical-align: top; float: left; width: 299px">
+					<div class="div-half inline header">
+						-Temas Creados-
+					</div>	
+ 					<% _.each(threads.news, function(c){ %>
+	 					<div class="div-half inline <%= (alter) ? 'trans-white': 'trans-gray'  %>" style="height:22px">
+							<img src="/images/categories/<%= c.icon %>" width="16px">
+							<a href="/#/tema/<%= c.thread_id %>"><%= c.title %></a>
+						</div>	
+						<% alter = !alter; %>
+ 					<% });%>
+									
+				</div>
+				<div style="padding: 0;vertical-align: top; float:left; width: 300px">
+					<div class="div-half inline header">
+						-Ultimos Comentados-
+					</div>
+
+					<% _.each(comments.news, function(c){ %>
+	 					<div class="div-half inline <%= (alter) ? 'trans-white': 'trans-gray'  %>" style="height:22px">
+							<img src="/images/categories/<%= c.icon %>" width="16px">
+							<a href="/#/tema/<%= c.thread_id %>"><%= c.title %></a>
+						</div>	
+						<% alter = !alter; %>
+ 					<% });%>				
+				</div>		
+			</div>			
+		</li>
+	</ul>
+	<div id="div_comments">
+		comentarios
+	</div>
+ 
+    <div class="header" style="margin-top:6px;">
+		- Dejale un comentario a <%= profile.nick %>-
+	</div>
+	<% if(true){ %>
+		<form method="post" id="form-new"> 
+			<div class="media" style="padding: 6px;">
+				<a class="pull-left" href="#">
+			    	<img class="media-object img-circle	" style="width: 64px; height: 64px" src="/images/users/ghost.png">
+			    </a>
+			    <div class="media-body">
+			    	<div style="margin:10px">
+						<div class="control-group">
+							<textarea id="comment" name="comment" placeholder="Comentario..." style="width: 98%; height: 70px;"></textarea>
+						</div>
+					</div>
+			    </div>		    
+			</div>				
+			<div style="width:150px; margin: 0 auto;">
+				<button type="submit" class="btn btn-primary"> Enviar</button>			
+			</div>			
+			<input type="hidden" id="thread" value="" />
+		</form>
+	<% } %>
+
+</div>

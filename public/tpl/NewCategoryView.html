@@ -1,0 +1,22 @@
+<div class="row-fluid trans-white">
+
+	<div class="header">
+		-Nuevo Post-
+	</div>
+	<form method="post" id="form-new"> 
+		<div style="margin:10px">
+			<div class="control-group">
+				<input type="text" placeholder="Titulo..." style="width: 98%;" id="post_title" name="post_title" />
+			</div>
+			<div class="control-group">
+				<textarea id="post_desc" name="post_desc" placeholder="Descripción..." style="width: 98%; height: 200px;"></textarea>
+			</div>
+		</div>
+		<div style="width:150px; margin: 0 auto;">
+			<button type="submit" class="btn btn-primary"> Crear</button>
+			<a href="/#/categoria/<%= category %>" class="btn"> Cancelar</a>
+		</div>
+		<input type="hidden" id="category" value="<%= category %>" />
+	</form>
+
+</div>

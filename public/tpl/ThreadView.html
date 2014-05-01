@@ -1,0 +1,106 @@
+<% var t = thread.thread; 	
+%>
+
+<div class="row-fluid trans-white" >
+
+	<div class="header" style="text-align: center">
+		<%= t.title %>
+	</div>
+
+	<ul class="inline div-max user-info ">
+		<li style="width:20%" class="trans-gray "> 
+			<div style="text-align:center">
+				<a href="/#/usuario/<%= t.user %>"><%= t.user %></a>
+			</div>
+			<div style="text-align:center">
+				<img src="/images/users/<%= t.image_url %>" />
+			</div>
+			<ul style="margin: 6px 0; list-style: none" class="trans-gray border-radius">
+				<li>
+					<ul class="inline">						
+						<li style="width: 100% !important;text-align:center;padding: 6px 0;">
+							<span class="label label-info"><%= t.status %></span>
+						</li>
+					</ul>									
+				</li>
+				<li>
+					<ul class="inline">
+						<li>Comentarios:</li>
+						<li><span class="badge badge-info"><%= t.total_comments %></span></li>
+					</ul>
+				</li>
+				<li>
+					<ul class="inline">
+						<li>Temas:</li>
+						<li><span class="badge badge-info"><%= t.posts %></span></li>
+					</ul>
+				</li>
+			</ul>
+			
+		</li>
+		<li style="widht:80%; vertical-align:top">
+			<div>
+				<%= t.description %>
+			</div>
+		</li>
+	</ul>
+	<div id="div_comments">
+	<% _.each(t.comments, function(i) { %>
+		
+		<% var rendered_html = utils.render('CommentView', {i: i}); %>
+		<%= rendered_html %>
+
+	<% }); %>
+	</div>
+	<!--
+    <div class="media trans-gray border-radius" style="padding:6px;">
+	    <a class="pull-left" href="#">
+	    	<img class="media-object img-circle	" style="width: 64px; height: 64px" src="/images/users/ghost.png">
+	    </a>
+	    <div class="media-body">
+		    <div class="media-heading"><a href="/#/user/mustaine">mustaine</a> </div>
+		    Aqui va entonces el coment ario
+		     
+		    
+		    <div class="media trans-gray border-radius"  style="padding:6px;">
+		    	<a class="pull-left" href="#">
+			    	<img class="media-object img-circle	" style="width: 64px; height: 64px" src="/images/users/ghost.png">
+			    </a>
+			    <div class="media-body">
+				    <div class="media-heading"><a href="/#/user/mustaine">mustaine</a></div>
+				    Aqui va entonces el comentario del de adentro
+				     
+				    
+			    </div>
+		    </div>
+	    </div>
+    </div> 
+    -->   
+    <div class="header" style="margin-top:6px;">
+		- Deja tu comentario -
+	</div>
+	<% if(isLogged){ %>	
+		<form method="post" id="form-new"> 
+			<div class="media" style="padding: 6px;">
+				<a class="pull-left" href="#">
+
+					<div class="media-object img-circle image-place">
+			    		<img class="media-object img-circle" style="width: 64px; height: 64px" src="/images/users/<%= utils.session.nick %>.png">
+			    	</div>					
+			    </a>
+			    <div class="media-body">
+			    	<div style="margin:10px">
+						<div class="control-group">
+							<textarea id="comment" name="comment" placeholder="Comentario..." style="width: 98%; height: 70px;"></textarea>
+						</div>
+					</div>
+			    </div>		    
+			</div>				
+			<div style="width:150px; margin: 0 auto;">
+				<button type="submit" class="btn btn-primary"> Enviar</button>			
+			</div>			
+			<input type="hidden" id="thread" value="" />
+		</form>
+	<% } %>
+
+</div>

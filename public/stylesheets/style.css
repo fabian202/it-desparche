@@ -1,0 +1,103 @@
+body {
+  padding: 0;
+    
+    color: #000000;
+    font-family: trebuchet ms;
+    margin-top: 0;
+    text-decoration: none;
+    background-color: gray ;
+    background: url("/images/fondo.gif");
+}
+
+a {
+  color: #00B7FF;
+}
+
+.div-max{
+	max-width: 800px;
+}
+.div-half{
+  max-width: 400px;
+}
+
+.div-center {
+	margin: 0 auto;
+}
+
+.cat-desc{
+    margin-left: 35px;  
+    font-size: 11px;
+}
+
+.header {
+    /*background-color: #3B5998;*/
+ background: url("/images/header_blue.png");
+    font-size: 11px;
+    font-weight: bold;
+    color: #fff;
+}
+.trans-white{
+     background: url("/images/header_white.png");
+}
+.trans-gray{
+     background: url("/images/header.png");
+}
+h1 {
+  text-shadow: 0 1px 0 #ccc,
+               0 2px 0 #c9c9c9,
+               0 3px 0 #bbb,
+               0 4px 0 #b9b9b9,
+               0 5px 0 #aaa,
+               0 6px 1px rgba(0,0,0,.1),
+               0 0 5px rgba(0,0,0,.1),
+               0 1px 3px rgba(0,0,0,.3),
+               0 3px 5px rgba(0,0,0,.2),
+               0 5px 10px rgba(0,0,0,.25),
+               0 10px 10px rgba(0,0,0,.2),
+               0 20px 20px rgba(0,0,0,.15);
+}
+.ajax-loader{
+    background-image: url('/images/ajax-loader.gif');
+    width: 16px;
+    height: 11px;
+    margin: 0 auto;
+    display: none;
+}
+
+.user-info{
+  padding: 10px;
+
+}
+.user-info > li > ul > li > ul > li:first-child{
+  width: 70px;
+  font-weight: bold;
+ 
+}
+.user-info > li > ul {
+   font-size: 11px;
+}
+.border-radius {
+-webkit-border-radius: 10px;
+     -moz-border-radius: 10px;
+          border-radius: 10px;
+}
+#div-title{
+  height: 100px;
+  margin-top:-20px;
+  background: url("/images/banner-itdesparche.png");
+}
+#chat-container{
+  height: 300px;
+  overflow: auto;
+}
+
+.user-profile:hover
+{
+    cursor: pointer;
+    opacity:0.4;
+    filter:alpha(opacity=40);
+}
+.image-place{
+  background-image: url("/images/users/ghost.png");  
+  background-size:64px 64px;
+}

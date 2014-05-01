@@ -1,0 +1,28 @@
+<div class="media trans-gray border-radius" style="padding:6px;margin:10px;">
+    <a class="pull-left" href="#">
+    	<div class="media-object img-circle image-place">
+    		<img class="media-object img-circle" style="width: 64px; height: 64px" src="/images/users/<%= i.user %>.png">
+    	</div>
+    	
+    </a>
+    <div class="media-body">
+	    <div class="media-heading"><a href="/#/user/mustaine"><%= i.user %></a> </div>
+	    <%= i.comment %>
+	     
+	    <!-- Nested media object -->
+	    <% _.each(i.comments, function(c){ %>
+	    	<div class="media trans-gray border-radius"  style="padding:6px;">
+		    	<a class="pull-left" href="#">
+			    	<img class="media-object img-circle	" style="width: 64px; height: 64px" src="/images/users/ghost.png">
+			    </a>
+			    <div class="media-body">
+				    <div class="media-heading"><a href="/#/user/mustaine"><%= c.user %></a></div>
+				    <%= c.comment %>
+				     
+				    
+			    </div>
+		    </div>
+	    <% }); %>
+	    
+    </div>
+</div> 

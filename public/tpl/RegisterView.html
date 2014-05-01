@@ -1,0 +1,81 @@
+<ul class="nav nav-tabs" id="login-tabs">
+	<li class="active"><a href="#login" data-toggle="tab">
+		<i class="icon-user"></i> Iniciar Sesión</a>
+	</li>
+	<li class=""><a href="#register" data-toggle="tab">
+		<i class="icon-pencil"></i> Registrarme</a>
+	</li>
+</ul>
+<div class="tab-content">
+	<div class="tab-pane active" id="login">
+		<form class="well span3" method="post" id="form-login" novalidate="novalidate">
+			<fieldset>
+				<div class="control-group">
+					<legend>Inicio de Sesión</legend>
+					<label for="login-email">Email</label>
+					<div class="input-prepend">
+						<span class="add-on"><i class="icon-envelope"></i></span>
+						<input type="text" class="span2 space" name="login-email" id="login-email">
+					</div>
+				</div>
+				<div class="control-group">
+					<label for="login-password">Password</label>
+					<div class="input-prepend">
+						<span class="add-on"><i class="icon-lock"></i></span>
+						<input type="Password" class="span2 space" name="login-password" id="login-password">
+					</div>
+				</div>
+				<div>
+					<button class="btn btn-primary space" type="submit">Entrar</button>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+	<div class="tab-pane" id="register">
+		<div class="span3 well">
+			<form method="post" id="frm-register" novalidate="novalidate">
+				<div class="control-group">
+					<label>Nick</label>
+					<input type="text" class="span3" name="nick" id="nick">
+				</div>
+				<div class="control-group">
+					<label>Email</label>
+					<input type="text" class="span3" name="reg-email" id="reg-email">
+				</div>
+				<div class="control-group">
+					<label>Contraseña</label>
+					<input type="password" class="span3" name="reg-password" id="reg-password">
+				</div>
+				<div class="control-group">
+					<label>Repetir Contraseña</label>
+					<input type="password" class="span3" name="rpassword" id="rpassword">
+				</div>
+				<div class="control-group">
+					<label>Acepto que he leido los&nbsp;
+						<a data-toggle="modal" href="#modalTerms">
+							Terminos y condiciones
+						</a>&nbsp;  
+						<input type="checkbox" name="terms" id="terms">
+					</label>
+				</div>
+				<input type="submit" class="btn btn-primary pull-right" value="Sign up">
+				<div class="clearfix"></div>
+			</form>
+		</div>
+		<div class="modal hide fade" aria-hidden="true" aria-labelledby="modalHeader" role="dialog" tabindex="-1" id="modalTerms" style="display: none;">
+			<div class="modal-header">
+				<button class="close" aria-hidden="true" data-dismiss="modal" type="button">x</button>
+				<h3 id="modalHeader">Terminos y condiciones</h3>
+			</div>
+			<div class="modal-body">
+				<p> 
+					Es usted conciente de que ingresa voluntariamente y deja a fabian fuera de cada comentarios y/o post que ud cree
+				</p>
+				<p>GRACIAS!!</p>
+			</div>
+			<div class="modal-footer">
+				<buton class="btn" aria-hidden="true" data-dismiss="modal">Cerrar</buton>
+			</div>
+		</div>
+	</div>
+</div>

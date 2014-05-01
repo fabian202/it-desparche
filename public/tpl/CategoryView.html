@@ -1,0 +1,28 @@
+<% if(is_new){ %>
+	<a href="/#/categoria/<%= category %>/new" class="btn btn-primary pull-right"><i class="icon-white icon-comment"></i> Nuevo</a>
+<% } %>
+
+<div style="clear: both; height: 6px;"></div>
+<div class="row-fluid trans-white" >
+	<ul class="inline div-max header" style="margin-bottom:0">
+		<li style="width: 400px;">-Nombre Tema-</li>
+		<li style="width:100px;text-align: center">-Nro Respuestas-</li>
+		<li class="pull-right " style="width:200px;text-align: center">-Ultimo Comentario-</li>
+	</ul>		
+	<% var alter = false; %>	
+	<% _.each(threads.threads, function(i) { %>			
+		<ul class="inline div-max  <%= (alter) ? 'trans-white': 'trans-gray'  %>" style="margin-bottom:0" >
+			<li style="width: 400px;"><a href="/#/tema/<%= i._id %>"><%= i.title %></a>
+				<div class="cat-desc">Creado por: <a href="/#/user/<%= i.user %>"><%= i.user %></a></div>
+			</li>
+			<li style="width:100px;text-align: center;vertical-align: top;"><%= i.responses %></li>
+			<li class="pull-right " style="width:200px;text-align: center">
+				<a href="/#/user/<%= i.user %>"><%= i.user %></a>				
+			</li>
+		</ul>
+		<% alter = !alter; %>
+	<% }); %>
+
+
+</div>
+<input type="hidden" value="<%= category %>" id="category" /> 

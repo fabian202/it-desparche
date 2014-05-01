@@ -1,0 +1,45 @@
+<ul class="nav pull-right inline">
+	<li><a data-toggle="modal" href="#modalLogin">Iniciar Sesión</a></li>
+	<li>||</li>
+	<li><a href="/#/registro/register">Registrarme</a></li>	
+</ul>
+
+<div class="modal hide fade" aria-hidden="true" aria-labelledby="modalHeader" role="dialog" tabindex="-1" id="modalLogin" style="display: none;whidt: 300px;">
+	<div class="modal-header">
+		<button class="close" aria-hidden="true" data-dismiss="modal" type="button">x</button>
+		<h3 id="modalHeader">Inicio de Sesión</h3>
+	</div>
+	<div class="modal-body">
+		<form class="span2" method="post" id="frm-login" style="margin:0 !important">
+			<div class="control-group">					
+				<label for="email">Email</label>
+				<div class="input-prepend">
+					<span class="add-on"><i class="icon-envelope"></i></span>
+					<input type="text" id="email" name="email" class="span2 space">
+				</div>
+			</div>
+			<div class="control-group">
+				<label for="password">Password</label>
+				<div class="input-prepend">
+					<span class="add-on"><i class="icon-lock"></i></span>
+					<input type="Password" id="password" name="password" class="span2 space">
+				</div>
+			</div>	
+			<div>
+				<button type="submit" class="btn btn-primary space">Entrar</button>
+			</div>				
+		</form>
+		<div class="span2" style="margin-left: 50px;">
+			<h1>Bienvenido!!</h1>
+			<span>al desparche</span>
+		</div>
+
+					
+
+
+	</div>
+	<div class="modal-footer">
+		
+		<buton class="btn" aria-hidden="true" data-dismiss="modal">Cerrar</buton>
+	</div>
+</div>

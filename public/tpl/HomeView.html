@@ -1,0 +1,59 @@
+<% 
+	var cat = info.categories.categories;
+	var comments = info.newsComments;
+	var threads = info.newsThreads;
+	var alter = false;
+ %>
+<div class="row-fluid trans-white" >
+
+	<ul class="inline div-max" style="padding: 0">
+		<li style="width: 49%; padding: 0; vertical-align: top">
+			<ul class="div-half inline header">
+				<li>-Temas Recientes-</li>
+			</ul>			
+			<% _.each(threads, function(t){ %>
+				<ul class="div-half inline <%= (alter) ? 'trans-white': 'trans-gray'  %>" style="height:22px">
+					<li>
+						<img src="/images/categories/<%= t.icon %>" width="16px">
+						<a href="/#/tema/<%= t.thread_id %>"><%= t.title %></a>
+					</li>
+				</ul>
+				<% alter = !alter; %>
+			<% });  %>		
+		</li>
+		<li style="width: 50%; padding: 0;vertical-align: top">
+			<ul class="div-half inline header">
+				<li>-Ultimos Comentados-</li>
+			</ul>
+			<% _.each(comments, function(c){ %>
+				<ul class="div-half inline <%= (alter) ? 'trans-white': 'trans-gray'  %>" style="height:22px">
+					<li>
+						<a href="/#/user/<%= c.user %>" style="font-size: 11px; color: gray"><%= c.user %></a>
+						<a href="/#/tema/<%= c.thread_id %>"><%= c.title %></a>
+					</li>
+				</ul>	
+				<% alter = !alter; %>
+			<% });  %>
+		</li>
+		
+	</ul>
+
+
+	<ul class="inline div-max header" style="margin-bottom:0">
+		<li>-Nombre Categoria-</li>
+		<li class="pull-right " style="width:200px;text-align: center">-Nro de Temas-</li>
+	</ul>	
+	
+	<% _.each(cat, function(i) { %>			
+		<ul class="inline div-max <%= (alter) ? 'trans-white': 'trans-gray'  %> " style="margin-bottom:0" >
+			<li><img src="/images/categories/<%= i.image_url %>" />  
+				<a href="/#/categoria/<%= i._id %>"><%= i.name %></a>
+				<div class="cat-desc"><%= i.description %></div>
+			</li>
+			<li class="pull-right " style="width:200px;text-align: center"><%= i.threads %></li>
+		</ul>
+		<% alter = !alter; %>
+	<% }); %>
+
+</div>
+
